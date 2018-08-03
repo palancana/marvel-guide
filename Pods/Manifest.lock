@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.7.3)
+  - StringMD5 (0.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - StringMD5 (~> 0.0.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - StringMD5
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  StringMD5: 3a9f0934c2568185df4ed5cfc2825e989db443a2
+
+PODFILE CHECKSUM: 9dfd7f267bc908a5df43a08f4f36cf47393acd96
+
+COCOAPODS: 1.5.3

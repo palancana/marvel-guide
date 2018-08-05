@@ -6,11 +6,13 @@
 //  Copyright © 2018 Rafael Díaz. All rights reserved.
 //
 
+import Foundation
+
 struct MarvelCharacters: Codable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
-    let etag: String
     let data: DataClass
+    let etag: String
 }
 
 struct DataClass: Codable {
@@ -20,20 +22,18 @@ struct DataClass: Codable {
 
 struct Result: Codable {
     let id: Int
-    let name, description, modified: String
-    let thumbnail: Thumbnail
-    let resourceURI: String
-    let comics, series: Comics
-    let stories: Stories
-    let events: Comics
+    let name, description, modified, resourceURI: String
     let urls: [URL]
+    let thumbnail: Thumbnail
+    let comics: Comics
+    let stories: Stories
+    let events, series: Comics
 }
 
 struct Comics: Codable {
-    let available: Int
+    let available, returned: Int
     let collectionURI: String
     let items: [ComicsItem]
-    let returned: Int
 }
 
 struct ComicsItem: Codable {
@@ -41,25 +41,17 @@ struct ComicsItem: Codable {
 }
 
 struct Stories: Codable {
-    let available: Int
+    let available, returned: Int
     let collectionURI: String
     let items: [StoriesItem]
-    let returned: Int
 }
 
 struct StoriesItem: Codable {
-    let resourceURI, name: String
-    let type: ItemType
-}
-
-enum ItemType: String, Codable {
-    case cover = "cover"
-    case interiorStory = "interiorStory"
+    let resourceURI, name, type: String
 }
 
 struct Thumbnail: Codable {
-    let path: String
-    let thumbnailExtension: Extension
+    let path, thumbnailExtension: String
     
     enum CodingKeys: String, CodingKey {
         case path
@@ -67,17 +59,7 @@ struct Thumbnail: Codable {
     }
 }
 
-enum Extension: String, Codable {
-    case jpg = "jpg"
-}
-
 struct URL: Codable {
-    let type: URLType
-    let url: String
+    let type, url: String
 }
 
-enum URLType: String, Codable {
-    case comiclink = "comiclink"
-    case detail = "detail"
-    case wiki = "wiki"
-}

@@ -7,8 +7,10 @@
 //
 
 let URL_CHARACTERS = "https://gateway.marvel.com/v1/public/characters"
+let RESULTS_LIMIT = 100
 let PUBLIC_KEY = YOUR_PUBLIC_KEY
 let PRIVATE_KEY = YOUR_PRIVATE_KEY
+
 
 // If you downloaded this from GitHub, and in order for it to work,
 // create a Swift file named SecretKeys.swift inside Core folder and

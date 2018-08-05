@@ -27,9 +27,12 @@ class ApiService {
         let ts = NSDate().timeIntervalSince1970.description
         let hash = "\(ts)\(PRIVATE_KEY)\(PUBLIC_KEY)".md5
         
+        // TODO: Marvel API gives 100 results as maximum. A search could give more than that
+        // so an infinite scroll may be needed...
         let parameters: Parameters = [
             "ts": ts,
             "nameStartsWith": name,
+            "limit": RESULTS_LIMIT,
             "apikey": PUBLIC_KEY,
             "hash": hash
         ]

@@ -19,11 +19,19 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let secondViewController = segue.destination as? SecondViewController {
+            secondViewController.character = self.characters?.data.results[tableView.indexPathForSelectedRow!.row]
+            print ("Selected row: \(String(describing: tableView.indexPathForSelectedRow!.row))")
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
